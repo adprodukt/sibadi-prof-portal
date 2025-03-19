@@ -1,8 +1,7 @@
-<div class="form-container">
-    <h1>{{$title}}</h1>
-    <form action="{{$route}}" method="{{$method}}">
+<form action="{{$route}}" method="{{($method == 'GET')? 'GET' : 'POST'}}">
+    @if ($method !== 'GET')
         @csrf
-        {{$slot}}
-        <button>{{$button}}</button>
-    </form>
-</div>
+        @method($method)
+    @endif
+    {{$slot}}
+</form>

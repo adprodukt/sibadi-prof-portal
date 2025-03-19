@@ -8,8 +8,11 @@
         <nav class="main-menu">
             <ul>
                 <li><a href="{{route('page.index')}}">Дни открытых дверей</a></li>  
-                @if (isset($USER))          
-                    <li><a href="{{route('users')}}">Пользователи</a></li> 
+                @if (isset($USER))  
+                    @if($USER->role === 1)
+                        <li><a href="{{route('users')}}">Пользователи</a></li> 
+                    @endif        
+                        <li><a href="{{route('profile')}}">Профиль</a></li> 
                 @endif
             </ul>
         </nav>

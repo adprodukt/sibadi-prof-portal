@@ -175,6 +175,8 @@ button:hover{
     box-shadow: none;
     outline: none;
 }
+
+
 .form-container input{
     width: 100%;
     height: 40px;
@@ -255,6 +257,13 @@ input:focus, select:focus  {
     line-height: 30px;
     padding: 0 10px;
 }
+.form-search button{
+    flex: 1;
+    font-size: 18px;
+    line-height: 30px;
+    height: 40px;
+    padding: 0 10px;
+}
 .success-but{
     background-color: green;
 }
@@ -266,4 +275,29 @@ input:focus, select:focus  {
 }
 .remove-but:hover{
     background-color: rgb(185, 0, 0);
+}
+
+input.error{
+    color: var(--color_fuscous_gray_approx);
+    border-color: rgb(255, 127, 127);
+}
+input.error:hover{
+    color: var(--color_fuscous_gray_approx);
+    border-color: red;
+}
+.alert{
+    margin-top: 3px;
+}
+.h1 button{
+    padding: 0;
+    font-size: 16px;
+    padding: 5px;
+}
+.h1 form{
+    display: flex;
+    align-items: center;
+}
+.row{
+    display: flex;
+    gap: 5px;
 }

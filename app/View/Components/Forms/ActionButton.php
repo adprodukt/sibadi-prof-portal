@@ -1,20 +1,23 @@
 <?php
 
-namespace App\View\Components\forms;
+namespace App\View\Components\Forms;
 
 use Closure;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Arr;
 use Illuminate\View\Component;
 
-class Form extends Component
+class ActionButton extends Component
 {
-
     /**
      * Create a new component instance.
      */
     public function __construct(
         public string $route = 'page.index',
         public string $method = 'POST',
+        public string $button = 'Отправить',
+        public string $type = '',
+        public array $routeParameters = [],
     )
     {
         //
@@ -25,6 +28,6 @@ class Form extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.forms.form');
+        return view('components.forms.action-button');
     }
 }

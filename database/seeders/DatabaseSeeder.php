@@ -17,28 +17,28 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        // DB::table('roles')->insert([
-        //     'id' => 1,
-        //     'role' => 'Администратор',
-        // ]);
-        // DB::table('roles')->insert([
-        //     'id' => 2,
-        //     'role' => 'Организатор',
-        // ]);
-        // DB::table('users')->insert([
-        //     'role_id' => 1,
-        //     'name' => 'Admin',
-        //     'login' => 'admin',
-        //     'email' => 'admin@mail.ru',
-        //     'password' => Hash::make('admin'),
+        DB::table('roles')->insert([
+            'id' => 1,
+            'role' => 'Администратор',
+        ]);
+        DB::table('roles')->insert([
+            'id' => 2,
+            'role' => 'Организатор',
+        ]);
+        DB::table('users')->insert([
+            'role_id' => 1,
+            'name' => 'Admin',
+            'login' => 'admin',
+            'email' => 'admin@mail.ru',
+            'password' => Hash::make('admin'),
 
-        // ]);
+        ]);
         DB::table('users')->insert([
             'role_id' => 2,
-            'name' => 'Admin',
-            'login' => 'admin1',
-            'email' => 'admin1@mail.ru',
-            'password' => Hash::make('admin'),
+            'name' => 'user',
+            'login' => 'user',
+            'email' => 'user@mail.ru',
+            'password' => Hash::make('user'),
 
         ]);
     }

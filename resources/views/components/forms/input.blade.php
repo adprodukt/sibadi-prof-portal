@@ -1,7 +1,7 @@
 <div class="input-block">
-    <label for="{{$name}}">{{$text}}</label>
-    <input id="{{$name}}" type="{{$type}}" name="{{$name}}" value="{{$value}}" {{$required? "required" : '' }}>
+    <label class="@error($name) red @enderror" for="{{$name}}">{{$text}}@if ($required)*@endif</label>
+    <input class="@error($name) error @enderror" id="{{$name}}" type="{{$type}}" name="{{$name}}" value="{{old($name) ?? $value}}" {{$required? "required" : '' }}>
     @error($name)
-        <span class="alert alert-danger">{{ $message }}</span>
+        <span class="alert alert-danger red">{{ $message }}</span>
     @enderror
 </div>
