@@ -41,23 +41,30 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('user'),
 
         ]);
+        DB::table('educational_institutions')->insert([
+            ['educational_institution' => 'СОШ Школа',],
+            ['educational_institution' => 'Лицей',],
+            ['educational_institution' => 'Гимназия',],
+            ['educational_institution' => 'СПО Колледж',],
+            ['educational_institution' => 'Университет',],
+        ]);
+        
+        DB::table('courses')->insert([
+            ['course' => '9',],
+            ['course' => '10',],
+            ['course' => '11',],
+            ['course' => 'Колледж 1 курс',],
+            ['course' => 'Колледж 2 курс',],
+            ['course' => 'Колледж 3 курс',],
+            ['course' => 'Колледж 4 курс',],
+            ['course' => 'Университет',],
+        ]);
         DB::table('directions')->insert([
             ['direction' => 'СОШ Школа',],
             ['direction' => 'Лицей',],
             ['direction' => 'Гимназия',],
             ['direction' => 'СПО Колледж',],
             ['direction' => 'Университет',],
-        ]);
-        
-        DB::table('educational_institutions')->insert([
-            ['educational_institution' => '9',],
-            ['educational_institution' => '10',],
-            ['educational_institution' => '11',],
-            ['educational_institution' => 'Колледж 1 курс',],
-            ['educational_institution' => 'Колледж 2 курс',],
-            ['educational_institution' => 'Колледж 3 курс',],
-            ['educational_institution' => 'Колледж 4 курс',],
-            ['educational_institution' => 'Университет',],
         ]);
     }
 }
