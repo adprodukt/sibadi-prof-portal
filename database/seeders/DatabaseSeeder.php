@@ -41,5 +41,23 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('user'),
 
         ]);
+        DB::table('directions')->insert([
+            ['direction' => 'СОШ Школа',],
+            ['direction' => 'Лицей',],
+            ['direction' => 'Гимназия',],
+            ['direction' => 'СПО Колледж',],
+            ['direction' => 'Университет',],
+        ]);
+        
+        DB::table('educational_institutions')->insert([
+            ['educational_institution' => '9',],
+            ['educational_institution' => '10',],
+            ['educational_institution' => '11',],
+            ['educational_institution' => 'Колледж 1 курс',],
+            ['educational_institution' => 'Колледж 2 курс',],
+            ['educational_institution' => 'Колледж 3 курс',],
+            ['educational_institution' => 'Колледж 4 курс',],
+            ['educational_institution' => 'Университет',],
+        ]);
     }
 }

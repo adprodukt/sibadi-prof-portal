@@ -11,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('days', function (Blueprint $table) {
+        Schema::create('recordings', function (Blueprint $table) {
             $table->id();
-            $table->date('date');
-            $table->time('time');
-            $table->text('description');
-            $table->string('title')->nullable()->default(null);
-            $table->foreignId('direction_id')->nullable()->default(null);
+            $table->foreignId('day_id');
+            $table->foreignId('educational_institution_id');
+            $table->string('name');
+            $table->string('phone');
+            $table->string('email');
+            $table->string('name_institution');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('days');
+        Schema::dropIfExists('recordings');
     }
 };
