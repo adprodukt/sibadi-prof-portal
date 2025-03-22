@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DayController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StaticPageController;
 use App\Http\Controllers\UserController;
@@ -7,7 +8,7 @@ use App\Http\Middleware\CheckAdmin;
 use App\Http\Middleware\CheckStatusUser;
 
 Route::middleware([CheckStatusUser::class])->group(function() {
-    Route::get('/', [StaticPageController::class, 'index'])->name('page.index');
+    Route::get('/', [DayController::class, 'indexForUser'])->name('page.index');
     Route::get('/login', [StaticPageController::class, 'login'])->name('page.login');
     
     Route::post('/login', [UserController::class, 'login'])->name('login');
@@ -16,6 +17,9 @@ Route::middleware([CheckStatusUser::class])->group(function() {
     Route::middleware("auth")->group(function (){
         Route::get('/logout', [UserController::class, 'logout'])->name('logout');
     
+        
+        Route::get('/days', [DayController::class, 'indexForModertor'])->name('days.index');
+
         Route::middleware(CheckAdmin::class)->group(function (){
             Route::get('/users', [UserController::class, 'index'])->name('users');
             Route::get('/users/create', [UserController::class, 'create'])->name('users.create');

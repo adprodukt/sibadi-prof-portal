@@ -16,15 +16,6 @@ class Layout extends Component
      */
     public function __construct()
     {
-        if($user = Auth::user()){
-            FacadesView::share('USER', (object) [
-                'role' => $user->role_id,
-                'login' => $user->login,    
-                'name' => $user->name,
-                'email' => $user->email,
-            ]);
-        }
-
         
     }
 
