@@ -18,7 +18,15 @@ Route::middleware([CheckStatusUser::class])->group(function() {
         Route::get('/logout', [UserController::class, 'logout'])->name('logout');
     
         
-        Route::get('/days', [DayController::class, 'indexForModertor'])->name('days.index');
+        Route::get('/days', [DayController::class, 'indexForModerator'])->name('days.index');
+        Route::get('/days/create', [DayController::class, 'create'])->name('days.create');
+        Route::post('/days', [DayController::class, 'store'])->name('days.store');
+
+        Route::post('/days/{id}/status', [DayController::class, 'store'])->name('days.store');
+        Route::patch('/days', [DayController::class, 'setStatus'])->name('days.status');
+        Route::get('/days/{id}', [DayController::class, 'edit'])->name('days.edit');
+        Route::get('/days/{id}', [DayController::class, 'update'])->name('days.update');
+
 
         Route::middleware(CheckAdmin::class)->group(function (){
             Route::get('/users', [UserController::class, 'index'])->name('users');
