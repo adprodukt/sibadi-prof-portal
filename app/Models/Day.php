@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Day extends Model
 {
     protected $fillable = [
+        'status',
         'title',
         'time',
         'date',

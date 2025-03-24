@@ -12,7 +12,7 @@ class Textarea extends Component
      * Create a new component instance.
      */
     public function __construct(
-        public string $text = 'Елемент ввода',
+        public string $text = '',
         public string $name = 'none',
         public string $value = '',
         public bool $required = true,

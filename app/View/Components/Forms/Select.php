@@ -12,7 +12,7 @@ class Select extends Component
      * Create a new component instance.
      */
     public function __construct(
-        public string $text = 'Выпадающий список',
+        public string $text = '',
         public string $name = 'none',
         public bool $required = true,)
     {

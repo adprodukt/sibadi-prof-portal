@@ -22,10 +22,11 @@ Route::middleware([CheckStatusUser::class])->group(function() {
         Route::get('/days/create', [DayController::class, 'create'])->name('days.create');
         Route::post('/days', [DayController::class, 'store'])->name('days.store');
 
-        Route::post('/days/{id}/status', [DayController::class, 'store'])->name('days.store');
-        Route::patch('/days', [DayController::class, 'setStatus'])->name('days.status');
+        Route::post('/days', [DayController::class, 'store'])->name('days.store');
+        Route::patch('/days/{id}/status', [DayController::class, 'setStatus'])->name('days.status');
         Route::get('/days/{id}', [DayController::class, 'edit'])->name('days.edit');
-        Route::get('/days/{id}', [DayController::class, 'update'])->name('days.update');
+        Route::put('/days/{id}', [DayController::class, 'update'])->name('days.update');
+        Route::delete('/days/{id}', [DayController::class, 'destroy'])->name('days.delete');
 
 
         Route::middleware(CheckAdmin::class)->group(function (){

@@ -12,11 +12,14 @@ class Input extends Component
      * Create a new component instance.
      */
     public function __construct(
-        public string $text = 'Елемент ввода',
+        public string $text = '',
         public string $name = 'none',
         public string $value = '',
         public string $type = 'text',
         public bool $required = true,
+        public string $placeholder = '',
+
+        
     )
     {
         //

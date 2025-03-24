@@ -247,6 +247,7 @@ input:focus, select:focus, textarea:focus  {
 }
 .list-info-body li{
     display: flex;
+    max-width: 900px;
 }
 .list-action {
     display: flex;
@@ -260,6 +261,12 @@ input:focus, select:focus, textarea:focus  {
     flex: 1;
     font-size: 16px;
     padding: 3px 5px;
+}
+.form-search form{
+    display: flex;
+    justify-content: start;
+    gap: 5px;
+    max-width: min-content;
 }
 .form-search input, .form-search select{
     min-width: 100px;
@@ -310,4 +317,8 @@ input.error:hover{
 .row{
     display: flex;
     gap: 5px;
+}
+.column{
+    display: flex;
+    flex-direction: column;
 }
