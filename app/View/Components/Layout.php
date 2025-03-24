@@ -2,11 +2,8 @@
 
 namespace App\View\Components;
 
-
 use Closure;
 use Illuminate\Contracts\View\View;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\View as FacadesView;
 use Illuminate\View\Component;
 
 class Layout extends Component
@@ -14,7 +11,9 @@ class Layout extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct(
+        public string $title = 'Сибади',
+    )
     {
         
     }

@@ -88,7 +88,10 @@ class DayController extends Controller
      */
     public function edit(string $id)
     {
-        $day = Day::find($id);
+        $day = Day::where('date', '>=', date("Y-m-d"))->find($id);
+
+        if(!$day) abort(404, '«День открытых дверей» не найден');
+
         $directions = Direction::all();
         return response()->view('days.edit', [
             'day' => $day,
@@ -101,7 +104,9 @@ class DayController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $day = Day::find($id);
+        $day = Day::where('date', '>=', date("Y-m-d"))->find($id);
+
+        if(!$day) abort(404, '«День открытых дверей» не найден');
 
         $validated = $request->validate([
             'title' => ['nullable', 'string', 'max:255'],
@@ -119,7 +124,9 @@ class DayController extends Controller
 
     public function setStatus(string $id)
     {
-        $day = Day::find($id);
+        $day = Day::where('date', '>=', date("Y-m-d"))->find($id);
+
+        if(!$day) abort(404, '«День открытых дверей» не найден');
         
         $day->update(['status' => !$day->status]);
         return redirect()->back();
@@ -129,7 +136,10 @@ class DayController extends Controller
      */
     public function destroy(string $id)
     {
-        Day::find($id)->delete();
+        $day = Day::where('date', '>=', date("Y-m-d"))->find($id)->delete();
+
+        if(!$day) abort(404, '«День открытых дверей» не найден');
+
         return redirect()->back();
     }
 }
