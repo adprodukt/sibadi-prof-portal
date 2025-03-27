@@ -50,7 +50,7 @@
             @endphp
                 <li>
                     <div class="list-info">
-                        <h2 class="list-name">{{$day->title ?? 'asd'}} 
+                        <h2 class="list-name">{{$day->getTitle()}} 
                             @if (isset($moderator))
                                 @if ($boolDate)
                                     @if ($day->status)
@@ -93,6 +93,11 @@
                             ];
                         @endphp
                         @if(isset($moderator))
+                            <x-forms.action-button
+                                method="GET"
+                                button="Регистрации"
+                                route="{{route('recordings', $routeParameters)}}"
+                            ></x-forms.action-button>
                             @if ($boolDate)
                                 <x-forms.action-button
                                     method="GET"
@@ -125,7 +130,7 @@
                             <x-forms.action-button
                                 method="GET"
                                 button="Зарегистрироваться"
-                                route="{{route('days.edit', $routeParameters)}}"
+                                route="{{route('recordings.create', $routeParameters)}}"
                             ></x-forms.action-button>
                         @endif
                     </div>

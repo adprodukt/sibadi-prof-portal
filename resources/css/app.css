@@ -128,6 +128,7 @@ main{
 }
 .form-container h1{
     margin-bottom: 20px;
+    max-width: 700px;
 }
 .form-container form{
     display: flex;
@@ -233,6 +234,7 @@ input:focus, select:focus, textarea:focus  {
     margin-bottom: 10px;
     display: flex;
     gap: 5px;
+    max-width: 700px;
 }
 .list-name span{
     font-weight: normal;

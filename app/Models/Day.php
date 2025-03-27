@@ -17,6 +17,13 @@ class Day extends Model
         'direction_id',
     ];
 
+    public function getTitle() :string{
+        $title = "День открытых дверей";
+        if($this->direction_id)
+            $title .= " для Направления: {$this->direction->direction}";
+        return $this->title ?? $title;
+    }
+
     public function direction() :BelongsTo
     {
         return $this->belongsTo(Direction::class);
