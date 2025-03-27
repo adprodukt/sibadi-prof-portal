@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class Input extends Component
+class Select extends Component
 {
     /**
      * Create a new component instance.
@@ -14,13 +14,7 @@ class Input extends Component
     public function __construct(
         public string $text = '',
         public string $name = 'none',
-        public string $value = '',
-        public string $type = 'text',
-        public bool $required = true,
-        public string $placeholder = '',
-
-        
-    )
+        public bool $required = true,)
     {
         //
     }
@@ -30,6 +24,6 @@ class Input extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.forms.input');
+        return view('components.forms.select');
     }
 }

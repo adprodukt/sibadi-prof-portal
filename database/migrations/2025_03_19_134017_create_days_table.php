@@ -15,7 +15,11 @@ return new class extends Migration
             $table->id();
             $table->date('date');
             $table->time('time');
-            
+            $table->text('description');
+            $table->boolean('status')->default(false);
+            $table->text('address');
+            $table->string('title')->nullable()->default(null);
+            $table->foreignId('direction_id')->nullable()->default(null);
             $table->timestamps();
         });
     }

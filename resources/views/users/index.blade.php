@@ -8,8 +8,7 @@
             ></x-forms.action-button>
         </h1>
         <div class="form-search">
-            <form action="{{route('users')}}" method="GET">
-                @csrf
+            <x-forms.form route="{{route('users')}}" method="GET">
                 <select name="status">
                     <option value="" disabled selected hidden>Выберите статус</option>
                     <option value="1">Активные</option>
@@ -18,7 +17,7 @@
                 <input type="text" name="search" placeholder="Найти">
                 <button name="action" value="search">Найти</button>
                 <button>Сброс</button>
-            </form>
+            </x-forms.form>
         </div>
         <ul class="users-list">
             @foreach ($users as $user)

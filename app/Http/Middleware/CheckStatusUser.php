@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\View;
 use Symfony\Component\HttpFoundation\Response;
 
 class CheckStatusUser
@@ -18,6 +19,12 @@ class CheckStatusUser
     {
         if(Auth::check()){
             $user = Auth::user();
+            View::share('USER', (object) [
+                'role' => $user->role_id,
+                'login' => $user->login,    
+                'name' => $user->name,
+                'email' => $user->email,
+            ]);
             if($user->status === 0){
                 Auth::logout();
                 $request->session()->invalidate();
